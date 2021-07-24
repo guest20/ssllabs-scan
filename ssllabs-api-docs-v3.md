@@ -295,8 +295,8 @@ The remainder of the document explains the structure of the returned objects. Th
    * -1 - test failed
    * 0 - unknown
    * 1 - not vulnerable
-   * 2 - vulnerable (weak oracle)
-   * 3 - vulnerable (strong oracle)
+   * 2 - weak oracle (vulnerable)
+   * 3 - strong oracle (vulnerable)
    * 4 - inconsistent results
 * **zombiePoodle** - results of the Zombie POODLE test:
    * -1 - test failed
