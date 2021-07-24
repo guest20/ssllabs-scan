@@ -251,9 +251,9 @@ The remainder of the document explains the structure of the returned objects. Th
 * **rc4WithModern** - true if RC4 is used with modern clients.
 * **rc4Only** - true if only RC4 suites are supported.
 * **forwardSecrecy** - indicates support for Forward Secrecy
-   * bit 0 (1) - set if at least one browser from our simulations negotiated a Forward Secrecy suite.
-   * bit 1 (2) - set based on Simulator results if FS is achieved with modern clients. For example, the server supports ECDHE suites, but not DHE.
-   * bit 2 (4) - set if all simulated clients achieve FS. In other words, this requires an ECDHE + DHE combination to be supported.
+   * bit 0 (1) - one browser (At least one browser from our simulations negotiated a Forward Secrecy suite)
+   * bit 1 (2) - modern clients (For example, the server supports ECDHE suites, but not DHE)
+   * bit 2 (4) - all clients (In other words, this requires an ECDHE + DHE combination to be supported)
 * **supportsAead** - true if the server supports at least one AEAD suite.
 * **supportsCBC** - true if the server supports at least one CBC suite.
 * **protocolIntolerance** - indicates protocol version intolerance issues:
