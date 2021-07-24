@@ -76,6 +76,7 @@ Parameters:
 
 * None.
 
+
 #### Retrieve root certificates ####
 
 This call returns the latest root certificates(Mozilla, Apple MacOS, Android, Java and Windows) used for trust validation.
@@ -159,6 +160,7 @@ The remainder of the document explains the structure of the returned objects. Th
 * **field** - a simple field
 * **object{}** - an object
 * **array[]** - an array
+* **array[][]** - an array of pairs
 
 
 ### Info ###
@@ -210,7 +212,7 @@ The remainder of the document explains the structure of the returned objects. Th
 
 ### EndpointDetails ###
 
-* **hostStartTime** = endpoint assessment starting time, in milliseconds since 1970. This field is useful when test results are retrieved in several HTTP invocations. Then, you should check that the hostStartTime value matches the startTime value of the host.
+* **hostStartTime** - endpoint assessment starting time, in milliseconds since 1970. This field is useful when test results are retrieved in several HTTP invocations. Then, you should check that the hostStartTime value matches the startTime value of the host.
 * **certChains[]** - Server [Certificate chains](#certificatechain)
 * **protocols[]** - supported [protocols](#protocol)
 * **suites[]** - supported [cipher suites](#protocolsuites) per protocol 
@@ -230,7 +232,7 @@ The remainder of the document explains the structure of the returned objects. Th
    * 1 - endpoint returns session IDs, but sessions are not resumed
    * 2 - session resumption is enabled
 * **compressionMethods** - integer value that describes supported compression methods
-   * bit 0 is set for DEFLATE
+   * bit 0 (1) - set for DEFLATE
 * **supportsNpn** - true if the server supports NPN
 * **npnProtocols** - space separated list of supported NPN protocols
 * **supportsAlpn** - true if the server supports ALPN
@@ -489,10 +491,10 @@ The HstsPreload object contains preload HSTS status of one source for the curren
 * **source** - source name
 * **hostname** - name of the host
 * **status** - preload status:
-   * error
+   * error - check `error` below for details
    * unknown - either before the preload status is checked, or if the information is not available for some reason.
-   * absent
-   * present
+   * absent - no hsts present 
+   * present - hsts present 
 * **error** - error message, when status is "error" 
 * **sourceTime** - time, as a Unix timestamp, when the preload database was retrieved
 
