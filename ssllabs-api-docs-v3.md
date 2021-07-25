@@ -217,10 +217,10 @@ The remainder of the document explains the structure of the returned objects. Th
 ### EndpointDetails ###
 
 * **hostStartTime** - endpoint assessment starting time, in milliseconds since 1970. This field is useful when test results are retrieved in several HTTP invocations. Then, you should check that the hostStartTime value matches the startTime value of the host.
-* **certChains[]** - Server [Certificate chains](#certificatechain)
-* **protocols[]** - supported [protocols](#protocol)
-* **suites[]** - supported [cipher suites](#protocolsuites) per protocol 
-* **noSniSuites** - [cipher suites](#protocolsuites) observed only with client that does not support Server Name Indication (SNI).
+* **certChains[]** - Server [CertificateChain](#certificatechain) objects
+* **protocols[]** - supported [Protocol](#protocol)
+* **suites[]** - supported [ProtocolSuites](#protocolsuites)/cipher suites per protocol 
+* **noSniSuites** - [ProtocolSuites](#protocolsuites)/cipher suites observed only with client that does not support Server Name Indication (SNI).
 * **namedGroups** - instance of [NamedGroups](#namedgroups) object.
 * **serverSignature** - Contents of the HTTP Server response header when known. This field could be absent for one of two reasons: 1) the HTTP request failed (check httpStatusCode) or 2) there was no Server response header returned.
 * **prefixDelegation** - true if this endpoint is reachable via a hostname with the www prefix
@@ -243,7 +243,7 @@ The remainder of the document explains the structure of the returned objects. Th
 * **alpnProtocols** - space separated list of supported ALPN protocols
 * **sessionTickets** - indicates support for Session Tickets
    * bit 0 (1) - set if session tickets are supported
-   * bit 1 (2) - set if the implementation is faulty [not implemented]
+   * bit 1 (2) - set if the implementation is faulty (not implemented)
    * bit 2 (4) - set if the server is intolerant to the extension
 * **ocspStapling** - true if OCSP stapling is deployed on the server
 * **staplingRevocationStatus** - same as Cert.revocationStatus, but for the stapled OCSP response.
@@ -345,13 +345,13 @@ The remainder of the document explains the structure of the returned objects. Th
 * **ecdhParameterReuse** - true if the server reuses its ECDHE values
 * **logjam** - true if the server uses DH parameters weaker than 1024 bits.
 * **chaCha20Preference** - true if the server takes into account client preferences when deciding if to use ChaCha20 suites. Will be deprecated in new version.
-* **hstsPolicy{}** - server's [HSTS policy](#hstspolicy). Experimental.
-* **hstsPreloads[]** - information about [preloaded HSTS policies](#hstspreload).
-* **hpkpPolicy{}** - server's [HPKP policy](#hpkppolicy).
-* **hpkpRoPolicy{}** - server's [HPKP-RO policy](#hpkppolicy).
-* **staticPkpPolicy{}** - server's [SPKP policy](#staticpkppolicy).
+* **hstsPolicy{}** - server's [HstsPolicy](#hstspolicy). Experimental.
+* **hstsPreloads[]** - information about [HstsPreload](#hstspreload) policies.
+* **hpkpPolicy{}** - server's [HpkpPolicy](#hpkppolicy).
+* **hpkpRoPolicy{}** - server's [HpkpPolicy](#hpkppolicy).
+* **staticPkpPolicy{}** - server's [staticPkpPolicy](#staticpkppolicy).
 * **httpTransactions[]** - an array of [HttpTransaction](#httptransaction) objects.
-* **drownHosts[]** - list of [DROWN hosts](#drownhosts).
+* **drownHosts[]** - list of [DrownHosts](#drownhosts).
 * **drownErrors** - true if error occurred in the DROWN test.
 * **drownVulnerable** - true if server vulnerable to the DROWN attack.
 * **implementsTLS13MandatoryCS** - true if server supports mandatory TLS 1.3 cipher suite (TLS_AES_128_GCM_SHA256), null if TLS 1.3 not supported.
@@ -364,8 +364,8 @@ The remainder of the document explains the structure of the returned objects. Th
 ### CertificateChain ###
 
 * **id** - Certificate chain ID
-* **certIds[]** - list of IDs of each [certificate](#cert), representing the chain certificates in the order in which they were retrieved from the server
-* **trustPaths[]** - [trust path object](#trustpath)
+* **certIds[]** - list of IDs of each [Cert](#cert), representing the chain certificates in the order in which they were retrieved from the server
+* **trustPaths[]** - [trustPath object](#trustpath)
 * **issues** - a number of flags that describe the chain and the problems it has:
    * bit 0 (1) - unused
    * bit 1 (2) - incomplete chain (set only when we were able to build a chain by adding missing intermediate certificates from external sources)
