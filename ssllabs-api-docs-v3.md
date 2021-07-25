@@ -624,7 +624,7 @@ The HstsPreload object contains preload HSTS status of one source for the curren
 ### CaaPolicy ####
 
 * **policyHostname** - hostname where policy is located
-* **caaRecords[]** -  list of Supported [CAARecord](#caarecord)
+* **caaRecords[]** -  list of Supported [CaaRecord](#caarecord)
 
 ### CaaRecord ####
 
