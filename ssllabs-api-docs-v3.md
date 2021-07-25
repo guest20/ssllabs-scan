@@ -594,7 +594,7 @@ The HstsPreload object contains preload HSTS status of one source for the curren
 * **crlRevocationStatus** - same as revocationStatus, but only for the CRL information (if any).
 * **ocspRevocationStatus** - same as revocationStatus, but only for the OCSP information (if any).
 * **dnsCaa** -  true if CAA is supported else false.
-* **caaPolicy** -  [CAA Policy](#caapolicy), Null if CAA is not supported
+* **caaPolicy** -  [CaaPolicy](#caapolicy), Null if CAA is not supported
 * **mustStaple** - true if stapling is supported else false
 * **sgc** - Server Gated Cryptography support; integer:
    * bit 1 (1) - Netscape SGC
