@@ -358,8 +358,8 @@ The remainder of the document explains the structure of the returned objects. Th
 ### CertificateChain ###
 
 * **id** - Certificate chain ID
-* **certIds[]** - list of IDs of each [certificate](#cert), representing the chain certificates in the order in which they were retrieved from the server
-* **trustPaths[]** - [trust path object](#trustpath)
+* **certIds[]** - list of IDs of each certificate, representing the chain certificates in the order in which they were retrieved from the server
+* **trustPaths[]** - [trustPath](#trustpath)
 * **issues** - a number of flags that describe the chain and the problems it has:
    * bit 0 (1) - unused
    * bit 1 (2) - incomplete chain (set only when we were able to build a chain by adding missing intermediate certificates from external sources)
