@@ -425,7 +425,7 @@ The remainder of the document explains the structure of the returned objects. Th
 
 ### NamedGroups ###
  
-* **list** - an array of [NamedGroup](#namedgroup) objects
+* **list[]** - an array of [NamedGroup](#namedgroup) objects
 * **preference** - true if the server has preferred curves that it uses first
 
 
